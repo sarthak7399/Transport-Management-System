@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\Hero-Technology.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\Features-Boxed.css" />
+    <None Include="wwwroot\css\Google-Style-Login.css" />
+    <None Include="wwwroot\css\Hero-Technology.css" />
+    <None Include="wwwroot\fonts\fa-brands-400.svg" />
+    <None Include="wwwroot\fonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\fonts\fa-regular-400.svg" />
+    <None Include="wwwroot\fonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\img\avatar_2x.png" />
+    <None Include="wwwroot\img\hero-background-technology.jpg" />
+    <None Include="wwwroot\img\packing128.png" />
+    <None Include="wwwroot\img\packing256.png" />
+    <None Include="wwwroot\img\QR Code.png" />
+    <None Include="wwwroot\img\school bus.png" />
+    <None Include="wwwroot\lib\bootstrap\bootstrap.min.css" />
+    <None Include="wwwroot\lib\jquery\bootstrap.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="3.1.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\bootstrap\css\" />
+    <Folder Include="assets\bootstrap\js\" />
+    <Folder Include="wwwroot\Students\" />
+  </ItemGroup>
+
+</Project>

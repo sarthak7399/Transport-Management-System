@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Bus_Pass_Mgt_Asp.Models.Notice>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container d-xl-flex align-items-xl-center" style="margin-top: 16px;">
+    <h5 class="flex-fill">Notice Board</h5> <a class="btn btn-primary" asp-action="Create">Create New</a>
+</div>
+
+<hr />
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UpdateTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdateTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.NID">Edit</a> |
+                               
+                                <a asp-action="Delete" asp-route-id="@item.NID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

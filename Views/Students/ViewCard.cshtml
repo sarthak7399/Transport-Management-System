@@ -1,0 +1,49 @@
+﻿@model Bus_Pass_Mgt_Asp.Models.User
+
+@{
+    ViewData["Title"] = "ViewCard";
+    Student user = ViewBag.User;
+}
+
+
+<div class="container d-xl-flex align-items-xl-center" style="margin-top: 11px;">
+    <h4 class="text-secondary flex-fill">View Card</h4>
+        <button class="btn btn-info" onclick="window.print()">Print</button>
+    
+</div>
+<hr />
+
+<div class="container">
+    <div class="col d-xl-flex justify-content-xl-center">
+        <div class="card shadow" style="width: 600px;border-radius: 35px;background: url('../../wwwroot/img/flagBG.png') center / contain repeat;">
+            <div class="card-body" style="padding-top: 12px;">
+                <div class="row" style="margin-bottom: 12px;">
+                    <div class="col-auto"><img src="~/img/id_card.png" style="width: 60px;" /></div>
+                    <div class="col text-center align-self-center">
+                        <h4 class="text-info">College Bus Pass</h4>
+                    </div>
+                    <div class="col-auto text-right"><img src="~/img/school bus.png" style="width: 60px;" /></div>
+                </div>
+                <hr style="margin-top: 10px;margin-bottom: 10px;" />
+                <div class="row">
+                    <div class="col-auto">
+                    <img src="~/Students/@Html.Raw(user.SID+".jpg")"  style="width: 190px;height: 190px;" />
+                    </div>
+                    <div class="col">
+                        <h6 class="d-xl-flex align-items-xl-center" style="margin-bottom: 0px;padding: 5px;"><img src="~/img/male_user32.png" style="width: 28px;margin-right: 15px;" />@user.StudentName</h6>
+                        <h6 class="d-xl-flex align-items-xl-center" style="margin-bottom: 0px;padding: 5px;"><img src="~/img/phone.png" style="width: 28px;margin-right: 15px;" />+91 - @user.Mobile</h6>
+
+                        <h6 class="d-xl-flex align-items-xl-center" style="margin-bottom: 0px;padding: 5px;"><img src="~/img/email.png" style="width: 28px;margin-right: 15px;" />@user.Email</h6>
+                        <h6 class="d-xl-flex align-items-xl-center" style="margin-bottom: 0px;padding: 5px;"><img src="~/img/driver cab.png" style="width: 28px;margin-right: 15px;" />@user.Bus.DriverName - @user.Bus.BusNumber</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr />
+                        <h6 class="d-xl-flex align-items-xl-center" style="margin-bottom: 0px;padding: 5px;"><img src="~/img/Map Marker Marker Outside Chartreuse.png" style="width: 28px;margin-right: 15px;" />@user.Address</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

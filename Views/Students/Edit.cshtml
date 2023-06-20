@@ -1,0 +1,67 @@
+﻿@model Bus_Pass_Mgt_Asp.Models.Student
+
+@{
+
+    var Buses = ViewBag.Buses;
+    var BID = ViewBag.BID;
+    ViewData["Title"] = "Edit";
+
+    var BusList = ViewBag.SelectList;
+
+}
+
+<div class="container d-xl-flex align-items-xl-end" style="margin-top: 20px;">
+    <h4 class="text-danger flex-fill">Edit</h4>
+</div>
+<hr />
+
+<div class="container" style="margin-top: 16px;">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="SID" />
+                <input type="hidden" asp-for="PWD" />
+                <div class="form-group">
+                    <label asp-for="StudentName" class="control-label"></label>
+                    <input asp-for="StudentName" class="form-control" />
+                    <span asp-validation-for="StudentName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mobile" class="control-label"></label>
+                    <input asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Bus</label>
+
+                    @Html.DropDownList("BID", BusList, "Default label", new { @class = "form-control" })
+
+                    <span asp-validation-for="BID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Student Image</label>
+                    <input type="File" name="Image" accept="images/*" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

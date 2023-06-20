@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Bus_Pass_Mgt_Asp.Models.Bus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container d-xl-flex align-items-xl-end" style="margin-top: 20px;">
+    <h4 class="text-danger flex-fill">Bus List</h4>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</div>
+<hr />
+
+
+<div class="container" style="margin-top: 16px;">
+    <div class="card  shadow-sm">
+        <div class="card-header">
+            <h5 class="mb-0">List</h5>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BusNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VisitingAreas)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DriverName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DriverMobile)
+                    </th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BusNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VisitingAreas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DriverName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DriverMobile)
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-secondary" asp-action="AssignedStudents" asp-route-id="@item.BID">Students</a>
+                                @if (!string.IsNullOrEmpty(item.MapLink))
+                                {<a class="btn btn-success" target="_blank" href="@item.MapLink">Location</a>}
+                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.BID">Edit</a>
+                                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.BID">Details</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.BID">Delete</a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+

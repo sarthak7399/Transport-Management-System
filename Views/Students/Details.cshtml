@@ -1,0 +1,54 @@
+﻿@model Bus_Pass_Mgt_Asp.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container d-xl-flex align-items-xl-end" style="margin-top: 20px;">
+    <h4 class="text-danger flex-fill">Details</h4>
+</div>
+<hr />
+<div class="container" style="margin-top: 16px;">
+
+
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            Bus Location
+        </dt>
+        <dd class="col-sm-10">
+            <a href="@Html.Raw(Model.Bus.MapLink)">See Current Location</a>
+        </dd>
+        <dt class="col-sm-2">
+            Card Link
+        </dt>
+        <dd class="col-sm-10">
+            <a href="@Url.Action("ViewCard","Students",new { id = Model.SID.ToString() })">View Buss Pass</a>
+        </dd>
+    </dl>
+</div>
+

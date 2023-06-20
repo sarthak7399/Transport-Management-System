@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Bus_Pass_Mgt_Asp.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container d-xl-flex align-items-xl-center" style="margin-top: 16px;">
+    <h5 class="flex-fill text-primary">Students</h5>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</div>
+
+<hr />
+
+<div class="container" style="margin-top: 16px;">
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="mb-0">List</h5>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StudentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Student item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img class="border rounded-circle" src="~/Students/@(item.SID.ToString()+".jpg")" style="width: 59px;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.SID">Edit</a>
+                                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.SID">Details</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.SID">Delete</a>
+                            </div>
+                        </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+

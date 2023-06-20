@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Http;
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Management</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/Hero-Technology.css" rel="stylesheet" />
+    <link href="~/css/Google-Style-Login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="~/css/Features-Boxed.css">
+</head>
+<body style="background: rgb(238,244,247);">
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md bg-info shadow">
+            <div class="container">
+                <a class="navbar-brand" href="#">Bus Management</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                     id="navcol-1">
+                    <ul class="nav navbar-nav">
+
+
+
+
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("NoticeBoard","Notices")">Notice Board</a></li>
+
+                        @if (Context.Session.GetString("UserType") != null && Context.Session.GetString("UserType").Equals("Admin"))
+                        {
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Students")">Students</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Buses")">Buses</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Notices")">Notices</a></li>
+
+                        }
+                        @if (Context.Session.GetString("UserType") != null && Context.Session.GetString("UserType").Equals("User"))
+                        {
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Profile","Users",new { id = Context.Session.GetString("UID")  })">Profile</a></li>
+
+                        }
+                        @if (Context.Session.GetString("UID") != null)
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Users/Logout">Logout</a></li>
+                        }
+                        else if (Context.Session.GetString("SID") != null)
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Students/Details/@Context.Session.GetString("SID")">Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/Students/PasswordChange">Change Password</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/Students/Logout">Logout</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Login","Students")">Student Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Login","Users")">Login</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - KYC_Verification - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
